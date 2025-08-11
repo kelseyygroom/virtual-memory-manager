@@ -1,24 +1,3 @@
-"""
-Demand paging extension:
-
-If PT not resident, ST contains negative number -b.
-    -> b is the block number on DISK that contains the PT
-If page is not resident, PT entry contains negative number -b
-    -> b is the block number on disk that contains the page
-* Sign bit used as present bit !! (negative = not resident)
-
-Also need to maintain list of free frames:
-Blocks are moved from PM to disk at page fault.
-    -> on PF, blocks loaded into free frame (need to be able to find the free frame)
-    -> Linked list to keep track
-
-
-disk may only be accessed one block @ a time. read_block(b, m) function
-copies the entire block D[b] into the PM frame starting at location PM[m]
-
-all nonresident pages of the VM and PTs are kept on the paging disk
-
-"""
 import sys
 from linkedList import LinkedList
 
@@ -181,5 +160,6 @@ if __name__ == "__main__":
     inputFile = sys.argv[2]
 
     VM.run(initFile, inputFile)
+
 
 
